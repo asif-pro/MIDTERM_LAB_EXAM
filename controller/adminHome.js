@@ -3,6 +3,13 @@ var express 	= require('express');
 //var loginModel    = require.main.require('./models/loginModel');
 var router 		    = express.Router();
 
+router.get('*', function(req, res, next){
+	if(req.session.username == null){
+		res.redirect('/login');
+	}else{
+		next();
+	}
+});
 
 router.get('/', function(req, res){
 	res.render('adminHome');
@@ -24,7 +31,13 @@ router.post('/', function(req, res){
 		}
 	});*/
 
+
 });
+
+	router.get('/addEmployee', function(req, res){
+	res.render('addEmployee');
+});
+
 
 
 module.exports = router;
