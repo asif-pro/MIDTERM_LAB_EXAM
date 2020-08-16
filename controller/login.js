@@ -11,11 +11,11 @@ router.get('/', function(req, res){
 router.post('/', function(req, res){
 
 	var user = {
-		username: req.body.username,
+		username: req.body.uname,
 		password: req.body.password
 	};
 
-	loginModel.validate(user, function(status){
+	loginModel.adminValidate(user, function(status){
 		if(status){
 			req.session.username = user.username;
 			res.redirect('/adminHome');

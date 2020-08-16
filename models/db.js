@@ -6,7 +6,7 @@ function getConnection(callback){
 	  host     : 'localhost',
 	  user     : 'root',
 	  password : '',
-	  database : 'node1'
+	  database : 'shopms'
 	});
 	 
 	connection.connect(function(err) {
