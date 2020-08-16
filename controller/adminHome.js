@@ -63,7 +63,10 @@ router.post('/', function(req, res){
 		if(status){
 			loginModel.insert(emp, function(status){
 		if(status){
-			res.render('adminHome');
+						addEmployeeModel.getAll(function(results){
+		res.render('allEmployeeList', { empList : results, uname: req.session.username});
+	});
+		
 		}else{
 			console.log('Insertion Failed try again');
 			

@@ -30,9 +30,9 @@ adminValidate: function(user, callback){
 
 
 	insert: function(emp, callback){
-		var sql = "insert into admin values(?, ?, ?)";
-
-		db.execute(sql, ['',emp.id, emp.pass ], function(status){
+		var sql = "insert into admin values(?, ?, ?, ?)";
+        
+		db.execute(sql, ['',emp.id, emp.pass, 'emp' ], function(status){
 			if(status){
 				callback(true);
 			}else{
