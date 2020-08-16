@@ -16,6 +16,15 @@ router.get('/', function(req, res){
 	res.render('adminHome');
 });
 
+
+router.get('/allEmployeeList', function(req, res){
+
+				addEmployeeModel.getAll(function(results){
+		res.render('allEmployeeList', { empList : results, uname: req.session.username});
+	});
+	
+});
+
 router.post('/', function(req, res){
 
 	/*var user = {

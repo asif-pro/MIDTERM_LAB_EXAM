@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Employee List</title>
+  </head>
+  <body>
+    <h1>All Employee</h1>
+    <table border="1" style="border-collapse: collapse;">
+      <tr>
+        <td>ID</td>
+        <td>Employee Name</td>
+        <td>Phone Number</td>
+        <td>Update/Delete</td>
+      </tr>
+      <% empList.forEach(empList => { %>
+      <tr>
+        <td>
+          <%= empList.empID %>
+        </td>
+        <td>
+          <%= empList.empName %>
+        </td>
+        <td>
+          <%= empList.phone %>
+        </td>
+    
+        <td>
+          <a href="update/<%= empList.empID %>">Edit</a>
+          <a href="delete/<%= empList.empID %>">Delete</a>
+        </td>
+      </tr>
+      <% });%>
+    </table>
+  </body>
+</html>

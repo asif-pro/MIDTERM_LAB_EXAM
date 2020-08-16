@@ -27,7 +27,16 @@ module.exports ={
 		});
 	},*/
 
-
+	getAll: function(callback){
+		var sql = "select * from emp";
+		db.getResults(sql, null,  function(result){
+			if(result.length > 0){
+				callback(result);
+			}else{
+				callback([]);
+			}
+		});
+	},
 
 	insert: function(emp, callback){
 		var sql = "insert into emp values(?, ?, ?, ?, ?)";
