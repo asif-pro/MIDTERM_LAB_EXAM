@@ -1,16 +1,16 @@
 var express 	= require('express');
 
-var loginModel    = require.main.require('./models/loginModel');
+//var loginModel    = require.main.require('./models/loginModel');
 var router 		    = express.Router();
 
 
 router.get('/', function(req, res){
-	res.render('login');
+	res.render('adminHome');
 });
 
 router.post('/', function(req, res){
 
-	var user = {
+	/*var user = {
 		username: req.body.username,
 		password: req.body.password
 	};
@@ -22,7 +22,7 @@ router.post('/', function(req, res){
 		}else{
 			res.send('invalid username/password');
 		}
-	});
+	});*/
 
 });
 
