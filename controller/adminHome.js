@@ -2,6 +2,7 @@ var express 			= require('express');
 
 var addEmployeeModel    = require.main.require('./models/addEmployeeModel');
 var loginModel    		= require.main.require('./models/loginModel');
+var deleteModel    		= require.main.require('./models/delete');
 var router 		    	= express.Router();
 
 router.get('*', function(req, res, next){
@@ -80,6 +81,29 @@ router.post('/', function(req, res){
 
 	//res.render('addEmployee');
 });
+
+
+
+
+router.get('/delete/:id', function(req, res){
+	
+	addEmployeeModel.get(req.params.id, function(result){
+		res.render('delete', {emp: result});
+	});
+	
+});
+
+router.post('/delete/:id', function(req, res){
+
+	deleteModel.delete(req.body.id, function(status){
+		if(status){
+			res.redirect('/adminHome/allEmployeeList');
+		}else{
+			//res.redirect('/home');
+		}
+	});
+});
+
 
 
 

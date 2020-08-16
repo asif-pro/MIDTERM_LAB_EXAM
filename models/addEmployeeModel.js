@@ -27,6 +27,23 @@ module.exports ={
 		});
 	},*/
 
+
+	
+
+
+				get: function(id, callback){
+		var sql = "select * from emp where empID=?";
+		db.getResults(sql, [id], function(result){
+			if(result.length > 0){
+				callback(result[0]);
+			}else{
+				callback([]);
+			}
+		});
+	},
+
+
+
 	getAll: function(callback){
 		var sql = "select * from emp";
 		db.getResults(sql, null,  function(result){

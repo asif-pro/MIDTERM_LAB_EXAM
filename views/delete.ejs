@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete</title>
+	
+
+</head>
+<body>
+	
+	<a href="/adminHome/all-student">Back</a> 
+	
+	
+	
+	<h3>Delete Employee</h3>
+
+	<form method="post">
+		<table border="1">
+			<tr>
+				<td>Employee Name</td>
+				<td><%= emp.empName %></td>
+			</tr>
+			<tr>
+				<td>Employee ID</td>
+				<td><%= emp.empID %></td>
+				
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><%= emp.phone %></td>
+				
+			</tr>
+		</table>
+		<h3>Are you sure? This can't be undone!</h3>
+		<input type="hidden" name="id" value="<%= emp.empID %>">
+		<input type="submit" name="submit" value="confirm">
+	</form>
+	
+</body>
+</html>

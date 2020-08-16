@@ -2,19 +2,16 @@ var db = require('./db');
 
 module.exports ={
 
-	/*getAdminId: function(id, callback){
-		var sql = "SELECT `student_id` FROM `student` WHERE student_id LIKE '________02' ORDER BY `student_id` DESC LIMIT 1";
-		
-		db.getResults(sql, [id], function(results){
-			//console.log(results);
-			//console.log('2');
-			if(results.length > 0){
-				return callback(results[0]);
+		getAll: function(callback){
+		var sql = "select * from admin";
+		db.getResults(sql, null,  function(result){
+			if(result.length > 0){
+				callback(result);
 			}else{
-				return callback([]);
+				callback([]);
 			}
 		});
-	},*/
+	},
 
 adminValidate: function(user, callback){
 		var sql = "select * from admin where aID=? and pass=?";

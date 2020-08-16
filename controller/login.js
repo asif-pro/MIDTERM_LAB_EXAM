@@ -17,6 +17,13 @@ router.post('/', function(req, res){
 
 	loginModel.adminValidate(user, function(status){
 		if(status){
+loginModel.getAll(function(results){
+		 var type = results.type;
+
+		 //console.log(type);
+	});
+
+
 			req.session.username = user.username;
 			res.redirect('/adminHome');
 		}else{
