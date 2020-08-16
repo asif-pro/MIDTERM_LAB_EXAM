@@ -1,7 +1,8 @@
-var express 	= require('express');
+var express 			= require('express');
 
-//var loginModel    = require.main.require('./models/loginModel');
-var router 		    = express.Router();
+var addEmployeeModel    = require.main.require('./models/addEmployeeModel');
+var loginModel    		= require.main.require('./models/loginModel');
+var router 		    	= express.Router();
 
 router.get('*', function(req, res, next){
 	if(req.session.username == null){
@@ -36,6 +37,36 @@ router.post('/', function(req, res){
 
 	router.get('/addEmployee', function(req, res){
 	res.render('addEmployee');
+});
+
+
+	router.post('/addEmployee', function(req, res){
+
+		  var emp = {
+      	id  		: req.body.id,
+		empName 	: req.body.username,
+		pass 		: req.body.password,
+		phone 		: req.body.phone
+	
+	}
+
+	addEmployeeModel.insert(emp, function(status){
+		if(status){
+			loginModel.insert(emp, function(status){
+		if(status){
+			res.render('adminHome');
+		}else{
+			console.log('Insertion Failed try again');
+			
+		}
+	});
+		}else{
+			console.log('Insertion Failed try again');
+			
+		}
+	});
+
+	//res.render('addEmployee');
 });
 
 

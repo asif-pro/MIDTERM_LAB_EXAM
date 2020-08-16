@@ -16,7 +16,7 @@ module.exports ={
 		});
 	},*/
 
-adminValidate: function(user, callback){
+/*adminValidate: function(user, callback){
 		var sql = "select * from admin where aID=? and pass=?";
 		db.getResults(sql, [user.username, user.password], function(result){
 			if(result.length > 0){
@@ -25,14 +25,14 @@ adminValidate: function(user, callback){
 				callback(false);
 			}
 		});
-	},
+	},*/
 
 
 
 	insert: function(emp, callback){
-		var sql = "insert into admin values(?, ?, ?)";
+		var sql = "insert into emp values(?, ?, ?, ?, ?)";
 
-		db.execute(sql, ['',emp.id, emp.pass ], function(status){
+		db.execute(sql, ['', emp.id , emp.empName , emp.pass , emp.phone   ], function(status){
 			if(status){
 				callback(true);
 			}else{
